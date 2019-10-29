@@ -1,14 +1,6 @@
-<?php
-    
-    function convert_euckr_to_utf8($str) { 
-        return iconv('EUC-KR', 'UTF-8', $str); 
-    } 
-    
-    while($e = mysql_fetch_assoc($sql)) { 
-        $output[] = array_map('convert_euckr_to_utf8', $e); 
-    } 
- 
-    $con = mysqli_connect("localhost", "davichiar1", "a1b1c1**", "davichiar1");
+<?php 
+    $con = mysqli_connect("localhost", "davichiar", "1234", "SCamera");
+    mysqli_query($con, "SET NAMES utf8");
 
     $result = mysqli_query($con, "SELECT * FROM CONTEXT");
     $response = array();
