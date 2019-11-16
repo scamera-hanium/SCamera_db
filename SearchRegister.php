@@ -7,12 +7,18 @@
     $nameCheck = $_POST['nameCheck'];
 
     //insert 쿼리문을 실행함
-    $statement = mysqli_prepare($con, "INSERT INTO search VALUES (?, ?)");
-    mysqli_stmt_bind_param($statement, "ss", $name, $nameCheck);
+    $statement = mysqli_prepare($con, "SELECT name FROM search");
     mysqli_stmt_execute($statement);
+    mysqli_stmt_store_result($statement);
+    mysqli_stmt_bind_result($statement, $name);
 
     $response = array();
-    $response["success"] = true;
+    $response["success"] = false;
 
+    while(mysqli_stmt_fetch($statement)){
+      $response["success"] = true;
+      $response["name"] = $name;
+    }
+    
     echo json_encode($response);
 ?>

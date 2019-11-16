@@ -1,10 +1,6 @@
 <?php
-    $servername = "localhost";
-    $username = "davichiar";
-    $password = "1234";
-
     // Create connection
-    $conn = mysqli_connect($servername, $username, $password, "SCamera");
+    $con = mysqli_connect("DB 입력");
 
     // Check connection
     if (!$conn) {

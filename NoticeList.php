@@ -1,5 +1,5 @@
 <?php 
-    $con = mysqli_connect("localhost", "davichiar", "1234", "SCamera");
+    $con = mysqli_connect("DB 입력");
     mysqli_query($con, "SET NAMES utf8");
 
     $result = mysqli_query($con, "SELECT * FROM CONTEXT");
